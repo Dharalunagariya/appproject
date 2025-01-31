@@ -38,159 +38,161 @@ class _loginscreenState extends State<loginscreen> {
         ),
         fit: BoxFit.fill,
       )),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 134,
-              left: 99,
-              right: 99,
-            ),
-            child: Container(
-              height: 54,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(60),
-                border: Border.all(
-                  width: 1,
-                  color: Color(0xff2C3B64),
-                ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 134,
+                left: 99,
+                right: 99,
               ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Signupscreen();
-                        }));
-                      },
-                      child: Container(
-                        height: 54,
-                        width: 116,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(60),
-                          color: Color(0xff2C3B64),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'SIGN IN ',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
+              child: Container(
+                height: 54,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(60),
+                  border: Border.all(
+                    width: 1,
+                    color: Color(0xff2C3B64),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return Signupscreen();
+                          }));
+                        },
+                        child: Container(
+                          height: 54,
+                          width: 116,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(60),
+                            color: Color(0xff2C3B64),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'SIGN IN ',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Signupscreen();
-                        }));
-                      },
-                      child: Container(
-                        height: 54,
-                        width: 116,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(60),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'SIGN UP  ',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(0xff2C3B64),
-                              fontWeight: FontWeight.w700,
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return Signupscreen();
+                          }));
+                        },
+                        child: Container(
+                          height: 54,
+                          width: 116,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(60),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'SIGN UP  ',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Color(0xff2C3B64),
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 138,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: TextFormField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  hintText: 'Email',
+                  hintStyle: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    color: Color(0xff2C3B64),
                   ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 138,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextFormField(
-              controller: emailController,
-              decoration: InputDecoration(
-                hintText: 'Email',
-                hintStyle: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: Color(0xff2C3B64),
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 46,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: TextFormField(
-              controller: passwordController,
-              decoration: InputDecoration(
-                hintText: 'Password',
-                hintStyle: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: Color(0xff2C3B64),
+            SizedBox(
+              height: 46,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextFormField(
+                controller: passwordController,
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  hintStyle: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    color: Color(0xff2C3B64),
+                  ),
                 ),
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              'Forgot password ? ',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                'Forgot password ? ',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          InkWell(
-            onTap: () {
-              _signin();
-            },
-            child: Container(
-              height: 52,
-              width: 182,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(60),
-                color: Color(0xff2C3B64),
-              ),
-              child: Center(
-                child: issignin
-                    ? CircularProgressIndicator(color: Colors.white)
-                    : Text(
-                        'SIGN IN ',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
+            SizedBox(
+              height: 50,
+            ),
+            InkWell(
+              onTap: () {
+                _signin();
+              },
+              child: Container(
+                height: 52,
+                width: 182,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(60),
+                  color: Color(0xff2C3B64),
+                ),
+                child: Center(
+                  child: issignin
+                      ? CircularProgressIndicator(color: Colors.white)
+                      : Text(
+                          'SIGN IN ',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                      ),
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     ));
   }
