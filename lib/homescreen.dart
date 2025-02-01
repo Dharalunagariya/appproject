@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/signup.dart';
 
 class Homescreen extends StatefulWidget {
@@ -9,6 +10,27 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<void> _signOutAndDeleteAccount() async {
+    try {
+      User? user = _auth.currentUser;
+
+      if (user != null) {
+        await user.delete();
+
+        await _auth.signOut();
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => Signupscreen()),
+        );
+      }
+    } catch (e) {
+      print("Error deleting account: $e");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +44,7 @@ class _HomescreenState extends State<Homescreen> {
           PopupMenuButton(
             onSelected: (value) {
               if (value == 'YES') {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => Signupscreen()),
-                );
+                _signOutAndDeleteAccount();
               }
             },
             child: Center(
